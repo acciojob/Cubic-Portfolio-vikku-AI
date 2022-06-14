@@ -1,19 +1,14 @@
-//your code here
+//your code 
+window.addEventListener('load', function(){
 
-function reset() {
-    for (i = 1; i <= 9; i++) {
-        const block = document.getElementById(`${i}`);
-        block.style.backgroundColor = "transparent";
-    }
-}
-  
-document.getElementById('reset_button').addEventListener('click', reset);
+    let rotate = document.querySelectorAll('.rotate');
+    let rotateSides = ['X', 'Y', 'Z'];
+    let container = document.querySelector('.container');
 
-document.getElementById('change_button').addEventListener('click', () => {
-    reset();
-    const blockId = document.getElementById("block_id").value;
-    const color = document.getElementById("colour_id").value;
-    // alert(colorId)
-    const block = document.getElementById(`${blockId}`);
-    block.style.backgroundColor = color;
+    rotate.forEach(function(item, i){
+        item.addEventListener('click', ()=>{
+            container.style.animation = `rotate${rotateSides[i]} 10s infinite linear`;
+        });
+    });
+
 });
